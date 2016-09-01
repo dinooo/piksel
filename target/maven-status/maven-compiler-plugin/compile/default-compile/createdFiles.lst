@@ -1,9 +1,0 @@
-com/discount/representation/Product.class
-com/discount/resources/ProductsCache.class
-com/discount/resources/SellersCache.class
-com/discount/resources/ProductDiscount.class
-com/discount/resources/SellerResources.class
-com/discount/resources/ProductResources.class
-com/discount/representation/Seller.class
-com/discount/Application.class
-com/discount/config/JerseyInitialization.class
