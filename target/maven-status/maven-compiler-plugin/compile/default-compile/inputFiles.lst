@@ -1,0 +1,9 @@
+/home/dino/IdeaProjects/discount-rest-services2/src/main/java/com/discount/representation/Product.java
+/home/dino/IdeaProjects/discount-rest-services2/src/main/java/com/discount/resources/ProductDiscount.java
+/home/dino/IdeaProjects/discount-rest-services2/src/main/java/com/discount/representation/Seller.java
+/home/dino/IdeaProjects/discount-rest-services2/src/main/java/com/discount/Application.java
+/home/dino/IdeaProjects/discount-rest-services2/src/main/java/com/discount/resources/SellerResources.java
+/home/dino/IdeaProjects/discount-rest-services2/src/main/java/com/discount/config/JerseyInitialization.java
+/home/dino/IdeaProjects/discount-rest-services2/src/main/java/com/discount/resources/ProductsCache.java
+/home/dino/IdeaProjects/discount-rest-services2/src/main/java/com/discount/resources/ProductResources.java
+/home/dino/IdeaProjects/discount-rest-services2/src/main/java/com/discount/resources/SellersCache.java
