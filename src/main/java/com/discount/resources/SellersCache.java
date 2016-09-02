@@ -3,6 +3,7 @@ package com.discount.resources;
 import com.discount.representation.Product;
 import com.discount.representation.Seller;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,11 +20,7 @@ public class SellersCache {
 
 
     static {
-        List<Product> products = ProductsCache.getAll();
-
-        Seller seller = new Seller(1L, "Mobis", products);
-
-        sellerList.put(1L, seller);
+        sellerList.put(1L, new Seller(1L, "Mobis"));
     }
 
 
@@ -50,7 +47,7 @@ public class SellersCache {
     }
 
     public static List<Seller> getAll(){
-
         return new ArrayList<>(sellerList.values());
     }
+
 }

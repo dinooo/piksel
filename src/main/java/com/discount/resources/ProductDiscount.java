@@ -23,9 +23,9 @@ public class ProductDiscount {
         List<Product> productsDiscount = new ArrayList<>();
         for (Product product : ProductsCache.getAll()) {
             //make sure this will work
-            if (product.getRegularPrice() > product.getDiscountPrice()) {
+            if (product.getDiscountPrice() != null && product.getRegularPrice() > product.getDiscountPrice()) {
                 //avoid code duplication
-                product.setDiscountPercentage((product.getDiscountPrice() / product.getRegularPrice()) * 100);
+                product.setDiscountPercentage(product.getDiscountPercentage());
                 productsDiscount.add(product);
             }
         }

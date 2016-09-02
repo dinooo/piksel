@@ -10,27 +10,41 @@ public class Product {
     private String currency;
     private double regularPrice;
     //make object
-    private double discountPrice;
-    private double discountPercentage;
+    private Double discountPrice;
+    private Double discountPercentage;
 
     public Product() {
     }
 
     public double getDiscountPercentage() {
-        return discountPercentage;
+        if(this.getDiscountPrice() != null)
+            return ((this.getDiscountPrice() / this.getRegularPrice()) * 100);
+        else
+            return 0;
     }
 
     public void setDiscountPercentage(double discountPercentage) {
         this.discountPercentage = discountPercentage;
     }
 
-    public Product(Long id, Long idSeller, String name, String currency, double regularPrice, double discountPrice) {
+    public Product(Long id, Long idSeller, String name, String currency, double regularPrice, double discountedPrice) {
         this.id = id;
         this.idSeller = idSeller;
         this.name = name;
         this.currency = currency;
         this.regularPrice = regularPrice;
-        this.discountPrice = discountPrice;
+        this.discountPrice = discountedPrice;
+        this.discountPercentage = null;
+    }
+
+    public Product(Long id, Long idSeller, String name, String currency, double regularPrice) {
+        this.id = id;
+        this.idSeller = idSeller;
+        this.name = name;
+        this.currency = currency;
+        this.regularPrice = regularPrice;
+        this.discountPrice = null;
+        this.discountPercentage = null;
     }
 
     public Long getId() {
@@ -73,11 +87,15 @@ public class Product {
         this.regularPrice = regularPrice;
     }
 
-    public double getDiscountPrice() {
+    public Double getDiscountPrice() {
         return discountPrice;
     }
 
-    public void setDiscountPrice(double discountPrice) {
+    public void setDiscountPrice(Double discountPrice) {
         this.discountPrice = discountPrice;
+    }
+
+    public void setDiscountPercentage(Double discountPercentage) {
+        this.discountPercentage = discountPercentage;
     }
 }

@@ -16,13 +16,13 @@ public class ProductsCache {
     static {
         Product product1 = new Product(1L, 1L, "nokia 3310", "KM", 500, 400);
         productList.put(1L, product1);
-        Product product2 = new Product(2L, 1L, "nokia lumia", "KM", 550, 400);
+        Product product2 = new Product(2L, 1L, "nokia lumia", "KM", 550);
         productList.put(2L, product2);
         Product product3 = new Product(3L, 1L, "lg g2", "KM", 500, 500);
         productList.put(3L, product3);
         Product product4 = new Product(4L, 1L, "samsung s2", "KM", 700, 400);
         productList.put(4L, product4);
-        Product product5 = new Product(5L, 1L, "samsung s3", "KM", 401, 400);
+        Product product5 = new Product(5L, 1L, "samsung s3", "KM", 401);
         productList.put(5L, product5);
         Product product6 = new Product(6L, 1L, "huawei", "KM", 500, 500);
         productList.put(6L, product6);
@@ -33,15 +33,18 @@ public class ProductsCache {
     public static Product create(Product product) {
         index++;
         product.setId(index);
-        product.setDiscountPercentage((product.getDiscountPrice() / product.getRegularPrice()) * 100);
+        if(product.getDiscountPrice() != null)
+            product.setDiscountPercentage(product.getDiscountPercentage());
         productList.put(index, product);
         /*
-        kada unesemo u products cache novi produkt, treba updateovati sellescache
+        kada unesemo u products cache novi produkt, treba updateovati sellercache
          */
         Seller seller = SellersCache.get(product.getIdSeller());
         //npe check
-        List<Product> products = seller.getProducts();
-        products.add(product);
+        if(seller.getProducts() != null){
+            List<Product> products = seller.getProducts();
+            products.add(product);
+        }
         SellersCache.update(seller.getId(), seller);
 
         return product;

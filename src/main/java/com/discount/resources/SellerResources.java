@@ -9,9 +9,6 @@ import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by dino on 8/31/16.
- */
 
 @Path("/sellers")
 @Produces(MediaType.APPLICATION_JSON)
@@ -19,26 +16,34 @@ import java.util.List;
 public class SellerResources {
 
     @GET
-    public List<Seller> getAll(@QueryParam("name") String name) {
-        List<Seller> sellers = SellersCache.getAll();
-        if (name != null && !name.equals("")) {
-            ArrayList<Seller> sellersFiltered = new ArrayList<>();
-            for (Seller seller : sellers) {
-                if (seller.getName().equals(name))
-                    sellersFiltered.add(seller);
-            }
-            return sellersFiltered;
-        }
-        return sellers;
+    public List<Seller> getAll() {
+        return SellersCache.getAll();
     }
 
     @GET
     @Path("{id}")
     public Seller getOne(@PathParam("id") Long id) {
-        if (id == 888) {
+        Seller seller = SellersCache.get(id);
+
+        if (seller == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         } else {
-            return SellersCache.get(id);
+            return seller;
+        }
+    }
+
+    @GET
+    @Path("{id}/products")
+    public List<Product> getSellerProducts(@PathParam("id") Long id) {
+        List<Product> products = new ArrayList<>();
+        for (Product product : ProductsCache.getAll()) {
+            if (product.getIdSeller() == id)
+                products.add(product);
+        }
+        if (products == null) {
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
+        } else {
+            return products;
         }
     }
 
