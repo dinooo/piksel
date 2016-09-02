@@ -1,14 +1,24 @@
+/*
 package com.discount.representation;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Set;
 
+*/
 /**
  * Created by dino on 8/31/16.
- */
-public class Seller {
+ *//*
 
+@Entity
+public class Seller {
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "productId")
     private List<Product> products;
 
     public Seller() {
@@ -45,3 +55,4 @@ public class Seller {
         this.products = products;
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package com.discount.resources;
 
 import com.discount.representation.Product;
@@ -10,9 +11,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+*/
 /**
  * Created by dino on 8/31/16.
- */
+ *//*
+
 public class SellersCache {
 
     private static Map<Long, Seller> sellerList = new HashMap<Long, Seller>();
@@ -51,3 +54,4 @@ public class SellersCache {
     }
 
 }
+*/

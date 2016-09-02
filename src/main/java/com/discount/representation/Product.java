@@ -1,11 +1,21 @@
 package com.discount.representation;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
 /**
  * Created by dino on 8/30/16.
  */
+@Entity
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull
     private Long id;
-    private Long idSeller;
+
+//    @JoinColumn(name = "productId")
+    private Long sellerID;
+
     private String name;
     private String currency;
     private double regularPrice;
@@ -27,9 +37,9 @@ public class Product {
         this.discountPercentage = discountPercentage;
     }
 
-    public Product(Long id, Long idSeller, String name, String currency, double regularPrice, double discountedPrice) {
+    public Product(Long id, Long sellerID, String name, String currency, double regularPrice, double discountedPrice) {
         this.id = id;
-        this.idSeller = idSeller;
+        this.sellerID = sellerID;
         this.name = name;
         this.currency = currency;
         this.regularPrice = regularPrice;
@@ -37,9 +47,9 @@ public class Product {
         this.discountPercentage = null;
     }
 
-    public Product(Long id, Long idSeller, String name, String currency, double regularPrice) {
+    public Product(Long id, Long sellerID, String name, String currency, double regularPrice) {
         this.id = id;
-        this.idSeller = idSeller;
+        this.sellerID = sellerID;
         this.name = name;
         this.currency = currency;
         this.regularPrice = regularPrice;
@@ -55,12 +65,12 @@ public class Product {
         this.id = id;
     }
 
-    public Long getIdSeller() {
-        return idSeller;
+    public Long getSellerID() {
+        return sellerID;
     }
 
-    public void setIdSeller(Long idSeller) {
-        this.idSeller = idSeller;
+    public void setSellerID(Long sellerID) {
+        this.sellerID = sellerID;
     }
 
     public String getName() {

@@ -1,7 +1,6 @@
 package com.discount.resources;
 
 import com.discount.representation.Product;
-import com.discount.representation.Seller;
 
 import java.util.*;
 
@@ -39,13 +38,13 @@ public class ProductsCache {
         /*
         kada unesemo u products cache novi produkt, treba updateovati sellercache
          */
-        Seller seller = SellersCache.get(product.getIdSeller());
-        //npe check
-        if(seller.getProducts() != null){
-            List<Product> products = seller.getProducts();
-            products.add(product);
-        }
-        SellersCache.update(seller.getId(), seller);
+//        Seller seller = SellersCache.get(product.getSellerID());
+//        //npe check
+//        if(seller.getProducts() != null){
+//            List<Product> products = seller.getProducts();
+//            products.add(product);
+//        }
+//        SellersCache.update(seller.getId(), seller);
 
         return product;
     }
