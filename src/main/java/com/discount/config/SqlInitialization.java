@@ -19,13 +19,13 @@ import java.util.Properties;
 
 @Configuration
 @EnableJpaRepositories(basePackages = "com.discount.persistence")
-public class SqlInitalization {
+public class SqlInitialization {
 
     @Bean
     public DriverManagerDataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5433/genesisuser");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/genesisuser");
         dataSource.setUsername("genesisuser");
         dataSource.setPassword("0601dino");
         return dataSource;

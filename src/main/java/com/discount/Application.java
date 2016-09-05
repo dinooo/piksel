@@ -25,10 +25,10 @@ public class Application {
         registration.addInitParameter(ServletProperties.JAXRS_APPLICATION_CLASS, JerseyInitialization.class.getName());
         return registration;
     }
-    /*
+
     @Bean
     public OpenEntityManagerInViewFilter openEntityManagerInViewFilter() {
         return new OpenEntityManagerInViewFilter();
     }
-    */
+
 }

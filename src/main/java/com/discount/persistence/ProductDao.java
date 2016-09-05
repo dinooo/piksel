@@ -7,4 +7,5 @@ package com.discount.persistence;
 import com.discount.representation.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 public interface ProductDao extends JpaRepository<Product, Long> {
+
 }

@@ -32,7 +32,7 @@ public class ProductResources {
     }
 
     @GET
-    public List<Product> getAll(@QueryParam("price") Double price) {
+    public List<Product> getAll() {
         return productDao.findAll();
     }
 
